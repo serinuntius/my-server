@@ -15,6 +15,4 @@ services:
 networks:
   default:
     external:
-      name: 
-        - bitool-db
-        - fluentd
+      name: bitool-db
