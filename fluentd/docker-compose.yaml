@@ -6,7 +6,11 @@ services:
     ports:
       - "24224:24224"
     environment:
-      - 'FLUENTD_CONF=fluentd.conf'
+      FLUENTD_CONF: fluentd.conf
+      S3_BUCKET_NAME: my-server-logs
+    env_file:
+      - env
     volumes:
       - ./log:/fluentd/log
       - ./conf:/fluentd/etc
+      - /var/log:/host/var/log
