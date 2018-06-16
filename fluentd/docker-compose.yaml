@@ -9,8 +9,8 @@ services:
     environment:
       FLUENTD_CONF: fluentd.conf
       S3_BUCKET_NAME: my-server-logs
-    env_file:
-      - env
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
     volumes:
       - ./log:/fluentd/log
       - ./conf:/fluentd/etc
