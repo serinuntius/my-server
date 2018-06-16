@@ -16,3 +16,7 @@ services:
       - ./log:/fluentd/log
       - ./conf:/fluentd/etc
       - /var/log:/host/var/log
+
+networks:
+  default:
+    driver: fluentd
