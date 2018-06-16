@@ -9,6 +9,11 @@ services:
     volumes:
       - ./data:/var/lib/mysql
       - ./conf:/etc/mysql/conf.d
+    logging:
+      driver: fluentd
+      options:
+        tag: "docker.mysql.{{.Name}}"
+
 networks:
   default:
     external:
