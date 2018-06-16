@@ -19,4 +19,6 @@ services:
 
 networks:
   default:
-    driver: fluentd
+    external:
+      name: 
+        - fluentd
