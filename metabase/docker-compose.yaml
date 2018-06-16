@@ -8,6 +8,10 @@ services:
       MB_DB_FILE: /tmp/metabase.db
     volumes:
       - ./data:/tmp/
+    logging:
+      driver: fluentd
+      options:
+        tag: "docker.metabase.{{.Name}}"
 networks:
   default:
     external:
