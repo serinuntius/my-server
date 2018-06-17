@@ -20,4 +20,4 @@ services:
 networks:
   default:
     external:
-      name: bi-tool
+      name: bitool-db
