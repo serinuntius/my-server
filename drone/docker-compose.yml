@@ -24,16 +24,16 @@ services:
       - DRONE_GITHUB=true
       # GitHubのOAuth ApplicationとしてDroneを登録し、
       # CLIENT IDとSecretを発行します。
-      - DRONE_GITHUB_CLIENT=
-      - DRONE_GITHUB_SECRET=
+      - DRONE_GITHUB_CLIENT=${DRONE_GITHUB_CLIENT}
+      - DRONE_GITHUB_SECRET=${DRONE_GITHUB_SECRET}
       # agentと同じ適当な文字列。agentとの連携で使われます。
-      - DRONE_SECRET=
+      - DRONE_SECRET=${DRONE_SECRET}
       # DBの設定
       # http://docs.drone.io/database-settings/
 
       # 最初からMySQLにしたほうが楽だと思います。
       - DRONE_DATABASE_DRIVER=mysql
-      - DRONE_DATABASE_DATASOURCE=
+      - DRONE_DATABASE_DATASOURCE=${DRONE_DATABASE_DATASOURCE}
 
       # https://discourse.drone.io/t/github-claims-that-merge-refs-are-undocumented-feature/1100
       - DRONE_GITHUB_MERGE_REF=false
@@ -53,7 +53,7 @@ services:
       # serverと通信するためのserverのホスト名とポート番号
       - DRONE_SERVER=drone-server:9000
       # serverと同じ適当な文字列。serverとの連携で使われます。
-      - DRONE_SECRET=
+      - DRONE_SECRET=${DRONE_SECRET}
       # 同時に実行できる最大ビルド数。環境に合わせて変えます。
       # 例えば、DRONE_MAX_PROCSを4にしたagentが2台ある場合、8個まで同時に実行可能です。
       - DRONE_MAX_PROCS=2
