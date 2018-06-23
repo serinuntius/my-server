@@ -1,0 +1,59 @@
+version: '3'
+services:
+  # http://docs.drone.io/release-0.8.0
+  drone-server:
+    image: drone/drone:0.8.2
+    ports:
+      # 外部に公開するポート
+      - 8000:8000
+      # agentと通信するポート
+      - 9000:9000
+    volumes:
+      - /var/lib/drone:/var/lib/drone/
+    restart: always
+    environment:
+      # http://docs.drone.io/user-registration/
+      # Gitリポジトリのuserとorganizationを使って簡単にユーザー管理できます。
+      # falseに設定した場合は、管理者が明示的にユーザー登録する必要があります。
+      - DRONE_OPEN=true
+      # Droneの管理者のGitHubユーザー名
+      - DRONE_ADMIN=serinuntius
+
+      # 構築するDroneのURL
+      - DRONE_HOST=http://drone.serinuntius.com
+      - DRONE_GITHUB=true
+      # GitHubのOAuth ApplicationとしてDroneを登録し、
+      # CLIENT IDとSecretを発行します。
+      - DRONE_GITHUB_CLIENT=
+      - DRONE_GITHUB_SECRET=
+      # agentと同じ適当な文字列。agentとの連携で使われます。
+      - DRONE_SECRET=
+      # DBの設定
+      # http://docs.drone.io/database-settings/
+
+      # 最初からMySQLにしたほうが楽だと思います。
+      - DRONE_DATABASE_DRIVER=mysql
+      - DRONE_DATABASE_DATASOURCE=
+
+      # https://discourse.drone.io/t/github-claims-that-merge-refs-are-undocumented-feature/1100
+      - DRONE_GITHUB_MERGE_REF=false
+      # publicなリポジトリのチェックアウトにも認証が必要な場合にtrueにします。
+      - DRONE_GITHUB_PRIVATE_MODE=true
+  drone-agent:
+    image: drone/agent:0.8.2
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # serverと通信するためのserverのホスト名とポート番号
+      - DRONE_SERVER=drone-server:9000
+      # serverと同じ適当な文字列。serverとの連携で使われます。
+      - DRONE_SECRET=
+      # 同時に実行できる最大ビルド数。環境に合わせて変えます。
+      # 例えば、DRONE_MAX_PROCSを4にしたagentが2台ある場合、8個まで同時に実行可能です。
+      - DRONE_MAX_PROCS=2
+
+networks:
+  default:
+    external:
+      name: bitool-db
