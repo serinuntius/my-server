@@ -5,7 +5,7 @@ services:
     image: drone/drone:0.8.2
     ports:
       # 外部に公開するポート
-      - 8000:8000
+      - 8080:8080
       # agentと通信するポート
       - 9000:9000
     volumes:
@@ -39,6 +39,11 @@ services:
       - DRONE_GITHUB_MERGE_REF=false
       # publicなリポジトリのチェックアウトにも認証が必要な場合にtrueにします。
       - DRONE_GITHUB_PRIVATE_MODE=true
+      # let's encrypt
+      - VIRTUAL_HOST="drone.serinuntius.com"
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST="serinuntius.com"
+      - LETSENCRYPT_EMAIL="wasab1gj@gmail.com"
   drone-agent:
     image: drone/agent:0.8.2
     restart: always
