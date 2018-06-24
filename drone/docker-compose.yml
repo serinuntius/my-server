@@ -20,7 +20,7 @@ services:
       - DRONE_ADMIN=serinuntius
 
       # 構築するDroneのURL
-      - DRONE_HOST=http://localhost:8080
+      - DRONE_HOST=drone.serinuntius.com
       - DRONE_GITHUB=true
       # GitHubのOAuth ApplicationとしてDroneを登録し、
       # CLIENT IDとSecretを発行します。
@@ -42,7 +42,7 @@ services:
       # let's encrypt
       - VIRTUAL_HOST=drone.serinuntius.com
       - VIRTUAL_PORT=8000
-      - LETSENCRYPT_HOST=serinuntius.com
+      - LETSENCRYPT_HOST=drone.serinuntius.com
       - LETSENCRYPT_EMAIL=wasab1gj@gmail.com
   drone-agent:
     image: drone/agent:0.8.2
