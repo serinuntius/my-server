@@ -20,7 +20,7 @@ services:
       - DRONE_ADMIN=serinuntius
 
       # 構築するDroneのURL
-      - DRONE_HOST=http://drone.serinuntius.com
+      - DRONE_HOST=http://localhost:8080
       - DRONE_GITHUB=true
       # GitHubのOAuth ApplicationとしてDroneを登録し、
       # CLIENT IDとSecretを発行します。
