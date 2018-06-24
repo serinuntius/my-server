@@ -29,6 +29,12 @@ services:
       # CLIENT IDとSecretを発行します。
       - DRONE_GITHUB_CLIENT=${DRONE_GITHUB_CLIENT}
       - DRONE_GITHUB_SECRET=${DRONE_GITHUB_SECRET}
+
+      # for bitbucket
+      DRONE_BITBUCKET=true
+      DRONE_BITBUCKET_CLIENT=${DRONE_BITBUCKET_CLIENT}
+      DRONE_BITBUCKET_SECRET=${DRONE_BITBUCKET_SECRET}
+      
       # agentと同じ適当な文字列。agentとの連携で使われます。
       - DRONE_SECRET=${DRONE_SECRET}
       # DBの設定
