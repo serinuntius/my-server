@@ -42,7 +42,7 @@ services:
       # let's encrypt
       - VIRTUAL_HOST=drone.serinuntius.com
       - VIRTUAL_PORT=8000
-      - LETSENCRYPT_HOST=drone.serinuntius.com
+      - LETSENCRYPT_HOST=serinuntius.com
       - LETSENCRYPT_EMAIL=wasab1gj@gmail.com
   drone-agent:
     image: drone/agent:0.8.2
