@@ -11,6 +11,8 @@ services:
     volumes:
       - /var/lib/drone:/var/lib/drone/
     restart: always
+    networks:
+      - proxy
     environment:
       # http://docs.drone.io/user-registration/
       # Gitリポジトリのuserとorganizationを使って簡単にユーザー管理できます。
@@ -49,6 +51,8 @@ services:
     restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - proxy
     environment:
       # serverと通信するためのserverのホスト名とポート番号
       - DRONE_SERVER=drone-server:9000
