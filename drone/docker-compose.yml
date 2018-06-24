@@ -13,6 +13,7 @@ services:
     restart: always
     networks:
       - proxy
+      - db
     environment:
       # http://docs.drone.io/user-registration/
       # Gitリポジトリのuserとorganizationを使って簡単にユーザー管理できます。
@@ -53,6 +54,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - proxy
+      - db
     environment:
       # serverと通信するためのserverのホスト名とポート番号
       - DRONE_SERVER=drone-server:9000
@@ -63,7 +65,7 @@ services:
       - DRONE_MAX_PROCS=2
 
 networks:
-  default:
+  db:
     external:
       name: bitool-db
   proxy:
