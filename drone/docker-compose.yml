@@ -62,3 +62,7 @@ networks:
   default:
     external:
       name: bitool-db
+  proxy:
+    external:
+      name: webproxy
+  
