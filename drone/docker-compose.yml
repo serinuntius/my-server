@@ -5,7 +5,7 @@ services:
     image: drone/drone:0.8.2
     ports:
       # 外部に公開するポート
-      - 8080:8080
+      - 8080:8000
       # agentと通信するポート
       - 9000:9000
     volumes:
