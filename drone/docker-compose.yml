@@ -40,10 +40,10 @@ services:
       # publicなリポジトリのチェックアウトにも認証が必要な場合にtrueにします。
       - DRONE_GITHUB_PRIVATE_MODE=true
       # let's encrypt
-      - VIRTUAL_HOST="drone.serinuntius.com"
+      - VIRTUAL_HOST=drone.serinuntius.com
       - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST="drone.serinuntius.com"
-      - LETSENCRYPT_EMAIL="wasab1gj@gmail.com"
+      - LETSENCRYPT_HOST=drone.serinuntius.com
+      - LETSENCRYPT_EMAIL=wasab1gj@gmail.com
   drone-agent:
     image: drone/agent:0.8.2
     restart: always
