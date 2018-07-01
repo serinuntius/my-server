@@ -13,6 +13,8 @@ services:
     command: ./mirage
     volumes:
       - .:/myapp
+    networks:
+      - proxy
     logging:
       driver: fluentd
       options:
