@@ -11,8 +11,6 @@ services:
       ETSENCRYPT_HOST: docker.serinuntius.com
       LETSENCRYPT_EMAIL: wasab1gj@gmail.com
     command: 'sh -c ./mirage'
-    volumes:
-      - .:/myapp
     networks:
       - proxy
     logging:
