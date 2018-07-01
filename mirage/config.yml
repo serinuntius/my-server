@@ -1,0 +1,45 @@
+host:
+  webapi: docker.serinuntius.com
+  reverse_proxy_suffix: .serinuntius.com
+
+listen:
+  # listen address
+  # default is only listen from localhost
+  foreign_address: 127.0.0.1
+
+  # listen port and reverse proxy port
+  http:
+    # listen 8080 and transport to container's 5000 port
+    - listen: 30000
+      target: 3000
+
+  # not implemented
+  # we recommend to use frontend http(like nginx) to SSL termination
+  # HTTPS:
+  #   - 443
+
+docker:
+  # if you use docker through http, specify like "http://localhost:4243"
+  endpoint: unix:///var/run/docker.sock
+
+  # if you specify this, fill the form as default value on web interface.
+  # default_image: myapp:latest
+
+storage:
+  datadir: ./data
+  htmldir: ./html
+
+parameters:
+  - name: branch
+    env: GIT_BRANCH
+    rule: ""
+    required: true
+  - name: subdomain
+    env: SUB_DOMAIN
+    required: false
+    rule:
+  # add your custom parameters here!
+  # name is parameter name (passed by HTTP parameter)
+  # env is environment variable for docker container
+  # rule is constraint of value using regexp.
+  # required means required or optional parameter (boolean value)

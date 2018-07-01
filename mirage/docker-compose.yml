@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mirage:
+    build: .
+    ports:
+      - "30000:30000"
+    environment:
+      # let's encrypt
+      VIRTUAL_HOST: docker.serinuntius.com
+      VIRTUAL_PORT: 30000
+      ETSENCRYPT_HOST: docker.serinuntius.com
+      LETSENCRYPT_EMAIL: wasab1gj@gmail.com
+    volumes:
+      - .:/myapp
+    logging:
+      driver: fluentd
+      options:
+        tag: "docker.mirage"
+    
+networks:
+  proxy:
+    external:
+      name: webproxy
