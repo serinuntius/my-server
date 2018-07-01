@@ -8,7 +8,7 @@ services:
       # let's encrypt
       VIRTUAL_HOST: docker.serinuntius.com
       VIRTUAL_PORT: 30000
-      ETSENCRYPT_HOST: docker.serinuntius.com
+      LETSENCRYPT_HOST: docker.serinuntius.com
       LETSENCRYPT_EMAIL: wasab1gj@gmail.com
     command: 'sh -c ./mirage'
     networks:
