@@ -13,5 +13,3 @@ RUN curl -L https://github.com/acidlemon/mirage/releases/download/v0.3.1/mirage-
 WORKDIR /myapp
 
 ADD config.yml ./
-
-CMD ["./mirage"]
