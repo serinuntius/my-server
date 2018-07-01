@@ -5,7 +5,7 @@ host:
 listen:
   # listen address
   # default is only listen from localhost
-  foreign_address: 127.0.0.1
+  foreign_address: 0.0.0.0
 
   # listen port and reverse proxy port
   http:
