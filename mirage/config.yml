@@ -27,8 +27,8 @@ docker:
     NetworkMode: host
 
 storage:
-  datadir: /myapp/data
-  htmldir: /myapp/html
+  datadir: ./data
+  htmldir: ./html
 
 parameters:
   - name: branch
