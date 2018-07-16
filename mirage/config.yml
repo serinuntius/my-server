@@ -21,9 +21,9 @@ listen:
 docker:
   # if you use docker through http, specify like "http://localhost:4243"
   endpoint: unix:///var/run/docker.sock
-  network_connection_options:
-  - container: webproxy
-  - container: mysql57
+  docker_networks:
+  - name: webproxy
+  - name: mysql57
 
   host_config:
     AutoRemove: true
