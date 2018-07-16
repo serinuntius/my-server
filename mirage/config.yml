@@ -35,12 +35,17 @@ parameters:
     env: GIT_BRANCH
     rule: ""
     required: true
-  - name: subdomain
-    env: SUB_DOMAIN
-    required: false
-    rule:
-  # add your custom parameters here!
-  # name is parameter name (passed by HTTP parameter)
-  # env is environment variable for docker container
-  # rule is constraint of value using regexp.
-  # required means required or optional parameter (boolean value)
+  - name: host
+    env: VIRTUAL_HOST
+    required: true
+  - name: port
+    env: VIRTUAL_PORT
+    required: true
+  - name: letsencrypt_host
+    env: LETSENCRYPT_HOST
+    required: true
+  - name: letsencrypt_email
+    env: LETSENCRYPT_EMAIL
+    required: true
+
+env_file: ./.env
