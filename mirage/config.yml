@@ -21,10 +21,12 @@ listen:
 docker:
   # if you use docker through http, specify like "http://localhost:4243"
   endpoint: unix:///var/run/docker.sock
+  network_connection_options:
+  - container: webproxy
+  - container: mysql57
 
   host_config:
     AutoRemove: true
-    NetworkMode: host
 
 storage:
   datadir: ./data
@@ -35,15 +37,19 @@ parameters:
     env: GIT_BRANCH
     rule: ""
     required: true
+
   - name: host
     env: VIRTUAL_HOST
     required: true
+
   - name: port
     env: VIRTUAL_PORT
     required: true
+
   - name: letsencrypt_host
     env: LETSENCRYPT_HOST
     required: true
+
   - name: letsencrypt_email
     env: LETSENCRYPT_EMAIL
     required: true
