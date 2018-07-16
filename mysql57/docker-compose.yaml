@@ -3,7 +3,7 @@ services:
   mysql:
     image: mysql:5.7
     ports:
-      - "33006:33006"
+      - "33006:3306"
     environment:
       MYSQL_ROOT_PASSWORD: secret 
     volumes:
