@@ -1,0 +1,20 @@
+version: '2'
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "33006:33006"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret 
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./conf:/etc/mysql/conf.d
+    logging:
+      driver: fluentd
+      options:
+        tag: "docker.mysql57.{{.Name}}"
+
+networks:
+  default:
+    external:
+      name: mysql57
