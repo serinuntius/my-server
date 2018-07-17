@@ -33,11 +33,6 @@ storage:
   htmldir: ./html
 
 parameters:
-  - name: branch
-    env: GIT_BRANCH
-    rule: ""
-    required: true
-
   - name: host
     env: VIRTUAL_HOST
     required: true
