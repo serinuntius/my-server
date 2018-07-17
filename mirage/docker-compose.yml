@@ -11,6 +11,9 @@ services:
       LETSENCRYPT_HOST: docker.serinuntius.com
       LETSENCRYPT_EMAIL: wasab1gj@gmail.com
     command: ./mirage
+    volumes:
+    - ./html:/myapp/html
+    - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - proxy
     logging:
