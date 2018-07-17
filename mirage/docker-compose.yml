@@ -13,6 +13,7 @@ services:
     command: ./mirage
     volumes:
     - ./html:/myapp/html
+    - .env:/myapp/
     - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - proxy
