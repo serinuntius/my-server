@@ -17,6 +17,7 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - proxy
+      - mirage-proxy
     logging:
       driver: fluentd
       options:
@@ -26,3 +27,6 @@ networks:
   proxy:
     external:
       name: webproxy
+  mirage-proxy:
+    external:
+      name: mirage-proxy

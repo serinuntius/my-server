@@ -24,6 +24,7 @@ docker:
   docker_networks:
   - name: webproxy
   - name: mysql57
+  - name: mirage-proxy
 
   host_config:
     AutoRemove: true
